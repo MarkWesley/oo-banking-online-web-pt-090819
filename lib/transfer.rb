@@ -21,11 +21,12 @@ class Transfer
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
-    elsif @status == "complete"
-      "Transaction was already executed."
-    else
-      @status = "rejected"
+  
+    elsif @status = "rejected"
       "Transaction rejected. Please check your account balance."
+    else
+       @status == "complete"
+      "Transaction was already executed."
     end
   end
 
