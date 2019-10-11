@@ -21,7 +21,7 @@ class Transfer
         @sender.balance -= @amount
         @receiver.balance += @amount
         @status = "complete"
-    elsif @sender.balance < @amount && @status = "complete"
+    elsif @sender.balance > @amount && @status = "complete"
       @sender.balance = @sender.balance
       @receiver.balance = @receiver.balance
     else
