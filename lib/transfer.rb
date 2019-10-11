@@ -20,13 +20,14 @@ class Transfer
     if @sender.balance < @amount
       @status = "rejected"
       "Transaction rejected. Please check your account balance."
-    elsif @status = "complete"
-      "Transaction was already executed."
-    else
+    elsif
       @sender.balance > @amount && @status = "pending"
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
+    else
+       @status = "complete"
+      "Transaction was already executed."
     end
   end
 
